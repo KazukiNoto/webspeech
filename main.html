@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oxy</title>
+
+    <!-- Chrome音声認識 START -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = 'ja';
+
+        // 録音終了時トリガー
+        recognition.addEventListener('result', function (event) {
+            var text = event.results.item(0).item(0).transcript;
+            $("#result_text").val(text);
+        }, false);
+
+        // 録音開始
+        function record() {
+            recognition.start();
+        }
+    </script>
+    <!-- Chrome音声認識 END -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- <textarea id="result_text" cols="100" rows="10"></textarea> -->
+    <input id="result_text" class="uk-input" type="text" placeholder="入力">
+    <br>
+    <input class="uk-button uk-button-primary" type="button" onClick="record()" value="録音開始" />
+    
+</body>
+
+</html>

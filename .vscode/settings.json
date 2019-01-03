@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e791bfb5-183b-437a-ada4-0bd115ed6a13/resourceGroups/Buzzorder/providers/Microsoft.Web/sites/vlive-dev",
+    "appService.deploySubpath": ""
+}
